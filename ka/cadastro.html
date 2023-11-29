@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            padding: 16px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        input[type=text], input[type=number], input[type=time], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="main">
+        <!-- Conteúdo da página principal aqui -->
+    </div>
+
+    <div class="container">
+        <!-- Seu formulário aqui -->
+        <button type="submit" onclick="cadastrar()">Cadastrar</button>
+    </div>
+
+    <script>
+        function cadastrar() {
+            // Obtenha os valores do formulário
+            var local = document.getElementsByName('local')[0].value;
+            var valor = document.getElementsByName('valor')[0].value;
+            var hora = document.getElementsByName('hora')[0].value;
+            var via = document.getElementsByName('via')[0].value;
+
+            // Crie um novo elemento para adicionar à página principal
+            var novoElemento = document.createElement('p');
+            novoElemento.textContent = 'Local: ' + local + ', Valor: ' + valor + ', Hora: ' + hora + ', Via: ' + via;
+
+            // Adicione o novo elemento à página principal
+            document.getElementById('main').appendChild(novoElemento);
+        }
+    </script>
+
+    <div class="container">
+        <label for="local"><b>Localização</b></label>
+        <input type="text" placeholder="Localização" name="local" required>
+       
+        <br>
+
+        <label for="valor"><b>Valor Gasto</b></label>
+        <input type="number" placeholder="Valor Gasto" name="valor" required>
+
+        <br>
+        
+        <label for="hora"><b>Horário</b></label>
+        <input type="time" placeholder="Horário" name="hora" required>
+
+        <br>
+        
+        <label for="via"><b>Via</b></label>
+        <select name="via" required>
+            <option value="">Selecione uma opção</option>
+            <option value="opcao1">Pix</option>
+            <option value="opcao2">Dinheiro</option>
+            <option value="opcao3">Cartão</option>
+        </select>
+
+        <button type="submit">Cadastrar</button>
+    </div>
+</body>
+</html>
